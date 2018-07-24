@@ -25,7 +25,6 @@ unique_players_dict = {'Unique Players': unique_players} #dict of unique players
 unique_players_df = pd.DataFrame(unique_players_dict, index = ['Total']) # df of unique players
 unique_players_df
 
-
 # print('Total Number of Players: ' + str(unique_players))
 #print('Number of Unique Items: ' + str(unique_items))
 # print('Average Purchase Price: $' + str(round(avg_purch,2)))
@@ -97,7 +96,6 @@ def top_items(x):#function to create a series
 
 purch_df.groupby(['Item ID','Item Name', 'Price']).apply(top_items).sort_values(by=['Purchase Count'],ascending =False).head(5) #groupby Item ID, Item Name and Price and return a series
 
-
 def top_sales(x):#function to create a series
     names = {
             'Purchase Count': x['Purchase ID'].count(), #adding .format from line below will change output???????? #purchase count
@@ -118,7 +116,8 @@ print(r'This observation suggests marketing efforts should be focused on primari
 print()
 print(r'Observation 2: The average player spends only $3.05 and the max spent by any player is under $19.00.'
        'This suggests a low ceiling for revenue per player.  Our efforts should likely be focused on player aquisition and not increaseing revenue per player. '
-       'Once the number of players is high enough, increasing revenue per player will be more lucrative.')
+       'Once the number of players is high enough, increasing revenue per player will be more lucrative. It would also be of interest to investigate the number of items offered '
+       'and how many of each are purchased. Our resources may be better spent by pushing items we already have instead of adding more items.')
 print()
 print(r'Observation 3: This dataset is largely incomplete.'
        'This dataset lacks important features for driving business decisions. We are looking at revenue when profit may be of more importance. This data says nothing about '
@@ -126,5 +125,3 @@ print(r'Observation 3: This dataset is largely incomplete.'
        'standard that we are not measuring. It would also be of value to have marketing '
        'information. This dataset is small but may still be used in a limited capacity to drive business decisions outlined above. From this analysists perspective we should gather much '
        'more data and rerun the analysis.')
-
-
